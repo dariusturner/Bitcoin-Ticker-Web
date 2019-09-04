@@ -16,8 +16,8 @@ app.post("/", function(req, res){
   var crypto = req.body.crypto;
   var fiat = req.body.fiat;
 
-  baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/";
-  finalURL = baseURL + crypto + fiat;
+  var baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/";
+  var finalURL = baseURL + crypto + fiat;
 
   request(finalURL, function(error, response, body){
     var data = JSON.parse(body);
@@ -29,7 +29,7 @@ app.post("/", function(req, res){
     res.write("<h1>The price of " + crypto + " is " + price + " " + fiat + "</h1>");
 
     res.send();
-    
+
   });
 });
 
